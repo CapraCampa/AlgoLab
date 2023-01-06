@@ -1,0 +1,17 @@
+valeria: 20 origami leggere scrivere
+giacomo: 20 ciclismo correre geografia
+virginia: 19 leggere comunismo femminismo
+isabella: 20 leggere femminismo musica
+riccardo: 20 foto musica vestiti
+ester: 20 musica bere camminare
+giovanni: 20 lego musica cercatore
+valeria giacomo
+giacomo valeria
+valeria riccardo
+ester riccardo
+riccardo giacomo
+riccardo ester
+isabella virginia
+virginia isabella
+valeria isabella
+virginia ester

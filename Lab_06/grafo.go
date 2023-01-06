@@ -67,7 +67,7 @@ func trovaLista(v2 int, l *linkedList)bool{
 	}
 	return false
 }
-
+ 
 
 func main(){
 	scanner:=bufio.NewScanner(os.Stdin)

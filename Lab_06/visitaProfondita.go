@@ -119,6 +119,56 @@ func hobbySeguitiDaA(a string, g *grafo){
 	fmt.Println()
 }
 
+func dfs1 (g grafo , v string, aux map[string]bool) {
+	fmt.Println(v)
+	aux[v] = true
+	ver:=g.vertici[v]
+	for _ , ver2 := range g.adiacenti[*ver] {
+		v2:=(*ver2).chiave
+		if aux[v2] != true {
+			dfs1(g , v2 , aux )
+		}
+	}
+}
+
+
+func dfs1Pila(g grafo , v string, aux map[string]bool) {
+	coda := []string{v}
+	aux [v] = true
+	for len( coda ) > 0 {
+		v := coda [len(coda)-1]
+		coda = coda [:len(coda)-1]
+		fmt .Println("\t", v)
+		ver:=g.vertici[v]
+		for _, ver2 :=range g.adiacenti[*ver]{
+			v2:=(*ver2).chiave
+			if ! aux [ v2 ] {
+				coda = append( coda , v2 )
+				aux [ v2 ] = true
+			}
+		}
+	}
+}
+
+
+func bfs1 (g grafo , v string, aux map[string]bool) {
+	coda := []string{v}
+	aux [v] = true
+	for len( coda ) > 0 {
+		v := coda [0]
+		coda = coda [1:]
+		fmt .Println("\t", v)
+		ver:=g.vertici[v]
+		for _, ver2 :=range g.adiacenti[*ver]{
+			v2:=(*ver2).chiave
+			if ! aux [ v2 ] {
+				coda = append( coda , v2 )
+				aux [ v2 ] = true
+			}
+		}
+	}
+}
+
 
 func main(){
 	f,err:=os.Open("twitter.txt")
@@ -129,4 +179,13 @@ func main(){
 	stampa(g)
 	hobbySeguitiDaA("valeria",g)
 	hobbySeguentiA("riccardo",g)
+	aux:=make(map[string]bool)
+	fmt.Println("Visita in profondità:")
+	dfs1(*g,"valeria",aux)
+	aux=make(map[string]bool)
+	fmt.Println("Visita in profondità con altro criterio:")
+	dfs1Pila(*g,"valeria",aux)
+	aux=make(map[string]bool)
+	fmt.Println("Visita in ampiezza:")
+	bfs1(*g,"valeria",aux)
 }
